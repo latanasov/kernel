@@ -1,0 +1,16 @@
+#!/bin/bash
+clear
+sudo make install
+sudo modprobe lib80211
+sudo modprobe cfg80211
+sudo modprobe -r r8188eu
+sudo rmmod 8188eu.ko
+sudo insmod 8188eu.ko
+sudo lshw -c net |grep 8188
+#sudo ifconfig wlp0s20f0u1 down
+#sudo iwconfig wlp0s20f0u1 mode monitor
+#sudo airmon-ng check kill
+#sudo airmon-ng wlp0s20f0u1 start
+#sudo ifconfig wlp0s20f0u1 up
+
+echo "Done."
